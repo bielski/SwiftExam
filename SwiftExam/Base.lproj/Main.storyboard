@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftExam" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,91 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift-logo-hero-2" translatesAutoresizingMaskIntoConstraints="NO" id="yWH-Gf-EHa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJd-Dl-Whf" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Cg7-02-guU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZrW-2O-2ln"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CJd-Dl-Whf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0Tu-M8-ePa"/>
+                            <constraint firstItem="yWH-Gf-EHa" firstAttribute="top" secondItem="CJd-Dl-Whf" secondAttribute="top" id="3ch-nb-Ujl"/>
+                            <constraint firstItem="yWH-Gf-EHa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4Gq-D7-Mgg"/>
+                            <constraint firstItem="CJd-Dl-Whf" firstAttribute="leading" secondItem="yWH-Gf-EHa" secondAttribute="leading" id="4NU-vP-5OJ"/>
+                            <constraint firstItem="CJd-Dl-Whf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ang-xe-HGd"/>
+                            <constraint firstAttribute="trailing" secondItem="CJd-Dl-Whf" secondAttribute="trailing" id="FUu-FD-jUe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CJd-Dl-Whf" secondAttribute="bottom" constant="392" id="Hou-xI-whh"/>
+                            <constraint firstItem="CJd-Dl-Whf" firstAttribute="trailing" secondItem="yWH-Gf-EHa" secondAttribute="trailing" id="LES-2C-r5b"/>
+                            <constraint firstItem="yWH-Gf-EHa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="NkY-OL-0ZI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="carousel" destination="CJd-Dl-Whf" id="XqH-z2-VhP"/>
+                        <segue destination="8BD-Oz-Rv1" kind="presentation" identifier="question" id="0hI-Du-9BU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="111" y="45"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="0Hh-CN-hUQ">
+            <objects>
+                <viewController id="8BD-Oz-Rv1" customClass="QuestionViewController" customModule="SwiftExam" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PwL-si-QDa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gfq-Yo-pLG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AM6-6K-D9f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zi3-iW-cNT">
+                                <rect key="frame" x="16" y="28" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="U4A-iK-V1D"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="8BD-Oz-Rv1" eventType="touchUpInside" id="bwq-HJ-RiQ"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cz7-bl-KFM">
+                                <rect key="frame" x="48" y="140" width="278" height="259"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cz7-bl-KFM" secondAttribute="trailing" constant="33" id="EKW-bX-Jd8"/>
+                            <constraint firstItem="zi3-iW-cNT" firstAttribute="leading" secondItem="AM6-6K-D9f" secondAttribute="leadingMargin" id="KeT-m3-pTs"/>
+                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="zi3-iW-cNT" secondAttribute="bottom" constant="604" id="f7a-kp-NDO"/>
+                            <constraint firstItem="cz7-bl-KFM" firstAttribute="leading" secondItem="AM6-6K-D9f" secondAttribute="leadingMargin" constant="32" id="lTn-oR-MEP"/>
+                            <constraint firstItem="cz7-bl-KFM" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="120" id="qMG-Vm-R6m"/>
+                            <constraint firstItem="cz7-bl-KFM" firstAttribute="centerX" secondItem="AM6-6K-D9f" secondAttribute="centerX" constant="-0.5" id="qmN-C6-PyF"/>
+                            <constraint firstItem="zi3-iW-cNT" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="8" symbolic="YES" id="tVe-c1-aN1"/>
+                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="cz7-bl-KFM" secondAttribute="bottom" constant="268" id="vMv-Wz-SLV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1LQ-FR-2LM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856.79999999999995" y="44.527736131934034"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="50" height="50"/>
+        <image name="swift-logo-hero-2" width="950" height="534"/>
+    </resources>
 </document>

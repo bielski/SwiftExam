@@ -17,6 +17,9 @@
 		9CCBF3AA1E22C410007A286C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBF3A81E22C410007A286C /* LaunchScreen.storyboard */; };
 		9CCBF3B51E22C410007A286C /* SwiftExamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBF3B41E22C410007A286C /* SwiftExamTests.swift */; };
 		9CCBF3C01E22C410007A286C /* SwiftExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBF3BF1E22C410007A286C /* SwiftExamUITests.swift */; };
+		9CCBF3D11E22C6E3007A286C /* iCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBF3D01E22C6E3007A286C /* iCarousel.framework */; };
+		9CCBF3D31E22D881007A286C /* QuestionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBF3D21E22D881007A286C /* QuestionsDataSource.swift */; };
+		9CCBF3D51E22DD12007A286C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBF3D41E22DD12007A286C /* QuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,10 @@
 		9CCBF3BB1E22C410007A286C /* SwiftExamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftExamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBF3BF1E22C410007A286C /* SwiftExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExamUITests.swift; sourceTree = "<group>"; };
 		9CCBF3C11E22C410007A286C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CCBF3CD1E22C668007A286C /* SwiftExam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExam-Bridging-Header.h"; sourceTree = "<group>"; };
+		9CCBF3D01E22C6E3007A286C /* iCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCarousel.framework; path = "../../../Library/Developer/Xcode/DerivedData/SwiftExam-argtxxidvsmfbwcpdiscweleyxkx/Build/Products/Debug-iphonesimulator/iCarousel/iCarousel.framework"; sourceTree = "<group>"; };
+		9CCBF3D21E22D881007A286C /* QuestionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsDataSource.swift; sourceTree = "<group>"; };
+		9CCBF3D41E22DD12007A286C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		EA4FF64DB16E747C00077100 /* Pods-SwiftExamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExamUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftExamUITests/Pods-SwiftExamUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCBF3D11E22C6E3007A286C /* iCarousel.framework in Frameworks */,
 				744DAB7AEE80B5A602FE9876 /* Pods_SwiftExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +100,7 @@
 		5ACC75A0C9BC3D13A56E43BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CCBF3D01E22C6E3007A286C /* iCarousel.framework */,
 				984B4BC1790C1B36C562D55E /* Pods_SwiftExam.framework */,
 				923FD7576F445504518141A9 /* Pods_SwiftExamTests.framework */,
 				90491223A12D7A4008527B2C /* Pods_SwiftExamUITests.framework */,
@@ -126,10 +135,13 @@
 			children = (
 				9CCBF39F1E22C410007A286C /* AppDelegate.swift */,
 				9CCBF3A11E22C410007A286C /* ViewController.swift */,
+				9CCBF3D41E22DD12007A286C /* QuestionViewController.swift */,
+				9CCBF3D21E22D881007A286C /* QuestionsDataSource.swift */,
 				9CCBF3A31E22C410007A286C /* Main.storyboard */,
 				9CCBF3A61E22C410007A286C /* Assets.xcassets */,
 				9CCBF3A81E22C410007A286C /* LaunchScreen.storyboard */,
 				9CCBF3AB1E22C410007A286C /* Info.plist */,
+				9CCBF3CD1E22C668007A286C /* SwiftExam-Bridging-Header.h */,
 			);
 			path = SwiftExam;
 			sourceTree = "<group>";
@@ -241,6 +253,7 @@
 				TargetAttributes = {
 					9CCBF39B1E22C410007A286C = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					9CCBF3AF1E22C410007A286C = {
@@ -432,6 +445,8 @@
 			files = (
 				9CCBF3A21E22C410007A286C /* ViewController.swift in Sources */,
 				9CCBF3A01E22C410007A286C /* AppDelegate.swift in Sources */,
+				9CCBF3D51E22DD12007A286C /* QuestionViewController.swift in Sources */,
+				9CCBF3D31E22D881007A286C /* QuestionsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,10 +599,13 @@
 			baseConfigurationReference = 5A10D87CC41464597A0490CF /* Pods-SwiftExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewabielska.SwiftExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftExam/SwiftExam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -597,10 +615,12 @@
 			baseConfigurationReference = 71CDF7691D76E225FD1C0C63 /* Pods-SwiftExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewabielska.SwiftExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftExam/SwiftExam-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
