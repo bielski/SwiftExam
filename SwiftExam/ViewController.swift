@@ -17,7 +17,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        for i in 0 ... 20 {
+        for i in 1 ... 20 {
             items.append(i)
         }
     }
@@ -46,14 +46,16 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
             //recycled and used with other index values later
             itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
             itemView.backgroundColor = UIColor.white
-            itemView.alpha = 0.5
+            itemView.alpha = 0.8
             //itemView.image = UIImage(named: "page.png")
             itemView.contentMode = .center
 
             label = UILabel(frame: itemView.bounds)
             label.backgroundColor = .clear
             label.textAlignment = .center
-            label.font = label.font.withSize(50)
+            label.font = UIFont.systemFont(ofSize: 50)
+            //label.font = label.font.withSize(50)
+            label.textColor = UIColor.darkGray
             label.tag = 1
             itemView.addSubview(label)
         }
