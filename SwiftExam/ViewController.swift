@@ -11,64 +11,37 @@ import iCarousel
 
 class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
-    var items: [Int] = []
+    var carouselItems = QuestionsDataSource.questions
     
     @IBOutlet var carousel: iCarousel!
-    var selectedQuestion: Int?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        for i in 1 ... QuestionsDataSource.questions.count {
-            items.append(i)
-        }
-    }
+    var selectedQuestionIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        carousel.type = .coverFlow2
-        carousel.backgroundColor = nil
+        setup(of: carousel)
     }
     
     // MARK: Carousel delegate methods
     
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return items.count
+        return carouselItems.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        var label: UILabel
         var itemView: UIImageView
+        var itemLabel: UILabel
 
         if let view = view as? UIImageView {
             itemView = view
             //get a reference to the label in the recycled view
-            label = itemView.viewWithTag(1) as! UILabel
+            itemLabel = itemView.viewWithTag(1) as! UILabel
         } else {
-            //don't do anything specific to the index within
-            //this `if ... else` statement because the view will be
-            //recycled and used with other index values later
             itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-            itemView.backgroundColor = UIColor.white
-            itemView.alpha = 0.9
-            //itemView.image = UIImage(named: "page.png")
-            itemView.contentMode = .center
-
-            label = UILabel(frame: itemView.bounds)
-            label.backgroundColor = .clear
-            label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 50)
-            //label.font = label.font.withSize(50)
-            label.textColor = UIColor.darkGray
-            label.tag = 1
-            itemView.addSubview(label)
+            itemLabel = UILabel(frame: itemView.bounds)
+            
+            setup(of: itemView, with: itemLabel)
         }
-
-        //set item label
-        //remember to always set any properties of your carousel item
-        //views outside of the `if (view == nil) {...}` check otherwise
-        //you'll get weird issues with carousel item content appearing
-        //in the wrong place in the carousel
-        label.text = "\(items[index])"
+        itemLabel.text = "\(index+1)"
 
         return itemView
     }
@@ -81,14 +54,37 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
-        selectedQuestion = index
+        selectedQuestionIndex = index
         performSegue(withIdentifier: "question", sender: self)
     }
+    
+    // MARK: Prepare for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "question") {
             let questionController = segue.destination as! QuestionViewController
-            questionController.questionNumber = selectedQuestion!
+            questionController.questionNumber = selectedQuestionIndex!
         }
+    }
+    
+    // MARK: Private methods
+    
+    func setup(of carousel: iCarousel) {
+        carousel.type = .coverFlow2
+        carousel.backgroundColor = nil
+    }
+    
+    func setup(of itemView: UIImageView, with label: UILabel) {
+        itemView.backgroundColor = UIColor.white
+        itemView.alpha = 0.95
+        itemView.contentMode = .center
+        
+        label.backgroundColor = .clear
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 50)
+        label.textColor = UIColor.darkGray
+        label.tag = 1
+        
+        itemView.addSubview(label)
     }
 }

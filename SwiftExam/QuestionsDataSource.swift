@@ -19,8 +19,8 @@ struct QuestionsDataSource {
         "Is Swift an object-oriented language or a functional language?",
         "Consider the following code: \n\nvar array1 = [1, 2, 3, 4, 5] \nvar array2 = array1 \narray2.append(6) \nvar len = array1.count \n\nWhats the value of the len variable, and why?",
         "In Swift enumerations, what’s the difference between raw values and associated values?",
-        "What does ViewController is responsible for?",
-        "Describe memory managment in Swift?",
+        "What is ViewController responsible for?",
+        "Describe memory managment in Swift.",
         "What is a difference between designated and convenience initializer?",
         "Why guard is better than if?"
     ]
