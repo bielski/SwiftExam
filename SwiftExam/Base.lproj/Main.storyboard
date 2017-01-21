@@ -68,37 +68,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zi3-iW-cNT">
-                                <rect key="frame" x="16" y="28" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="U4A-iK-V1D"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <action selector="didTapCloseButton:" destination="8BD-Oz-Rv1" eventType="touchUpInside" id="bwq-HJ-RiQ"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cz7-bl-KFM">
-                                <rect key="frame" x="48" y="140" width="278" height="259"/>
+                                <rect key="frame" x="48" y="123" width="278" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift3Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9we-NF-G7x">
+                                <rect key="frame" x="146" y="539" width="83" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="FLm-21-0t6"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pad-tk-iE5">
+                                <rect key="frame" x="16" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="9de-oM-vzb"/>
+                                    <constraint firstAttribute="height" constant="30" id="oC0-10-6Wc"/>
+                                </constraints>
+                                <color key="tintColor" red="0.96862745098039216" green="0.13333333333333333" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="8BD-Oz-Rv1" eventType="touchUpInside" id="Hc0-RB-ZiP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9we-NF-G7x" secondAttribute="trailing" constant="130" id="0c7-7E-krC"/>
+                            <constraint firstItem="pad-tk-iE5" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="8" id="41s-dF-BxU"/>
+                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="9we-NF-G7x" secondAttribute="bottom" constant="50" id="8I6-BI-L6n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cz7-bl-KFM" secondAttribute="trailing" constant="33" id="EKW-bX-Jd8"/>
-                            <constraint firstItem="zi3-iW-cNT" firstAttribute="leading" secondItem="AM6-6K-D9f" secondAttribute="leadingMargin" id="KeT-m3-pTs"/>
-                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="zi3-iW-cNT" secondAttribute="bottom" constant="604" id="f7a-kp-NDO"/>
+                            <constraint firstItem="9we-NF-G7x" firstAttribute="centerX" secondItem="AM6-6K-D9f" secondAttribute="centerX" id="YLe-zS-aUo"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pad-tk-iE5" secondAttribute="leading" id="bDT-3n-dLC"/>
                             <constraint firstItem="cz7-bl-KFM" firstAttribute="leading" secondItem="AM6-6K-D9f" secondAttribute="leadingMargin" constant="32" id="lTn-oR-MEP"/>
-                            <constraint firstItem="cz7-bl-KFM" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="120" id="qMG-Vm-R6m"/>
+                            <constraint firstItem="cz7-bl-KFM" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="103" id="qMG-Vm-R6m"/>
                             <constraint firstItem="cz7-bl-KFM" firstAttribute="centerX" secondItem="AM6-6K-D9f" secondAttribute="centerX" constant="-0.5" id="qmN-C6-PyF"/>
-                            <constraint firstItem="zi3-iW-cNT" firstAttribute="top" secondItem="PwL-si-QDa" secondAttribute="bottom" constant="8" symbolic="YES" id="tVe-c1-aN1"/>
-                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="cz7-bl-KFM" secondAttribute="bottom" constant="268" id="vMv-Wz-SLV"/>
+                            <constraint firstItem="Gfq-Yo-pLG" firstAttribute="top" secondItem="cz7-bl-KFM" secondAttribute="bottom" constant="216" id="vMv-Wz-SLV"/>
+                            <constraint firstItem="9we-NF-G7x" firstAttribute="top" secondItem="cz7-bl-KFM" secondAttribute="bottom" constant="88" id="wTN-VY-q2h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="questionText" destination="cz7-bl-KFM" id="p1y-dJ-m01"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LQ-FR-2LM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,5 +121,6 @@
     <resources>
         <image name="close" width="50" height="50"/>
         <image name="swift-logo-hero-2" width="950" height="534"/>
+        <image name="swift3Logo" width="1138" height="1024"/>
     </resources>
 </document>

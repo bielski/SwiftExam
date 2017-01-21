@@ -10,11 +10,23 @@ import UIKit
 
 class QuestionViewController: ViewController {
     
+    @IBOutlet var questionText: UITextView!
+    var questionNumber: Int?
+    
     override func viewDidLoad() {
+        displayQuestionText()
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: private function
+    
+    private func displayQuestionText() {
+        guard let questionNumber = questionNumber else {
+            return
+        }
+        questionText.text = QuestionsDataSource.questions[questionNumber]
+    }
 }

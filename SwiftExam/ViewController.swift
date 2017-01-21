@@ -14,10 +14,11 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     var items: [Int] = []
     
     @IBOutlet var carousel: iCarousel!
+    var selectedQuestion: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        for i in 1 ... 20 {
+        for i in 1 ... QuestionsDataSource.questions.count {
             items.append(i)
         }
     }
@@ -27,6 +28,8 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         carousel.type = .coverFlow2
         carousel.backgroundColor = nil
     }
+    
+    // MARK: Carousel delegate methods
     
     func numberOfItems(in carousel: iCarousel) -> Int {
         return items.count
@@ -78,6 +81,14 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
+        selectedQuestion = index
         performSegue(withIdentifier: "question", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "question") {
+            let questionController = segue.destination as! QuestionViewController
+            questionController.questionNumber = selectedQuestion!
+        }
     }
 }
