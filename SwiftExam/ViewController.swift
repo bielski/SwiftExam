@@ -49,7 +49,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
             //recycled and used with other index values later
             itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
             itemView.backgroundColor = UIColor.white
-            itemView.alpha = 0.8
+            itemView.alpha = 0.9
             //itemView.image = UIImage(named: "page.png")
             itemView.contentMode = .center
 

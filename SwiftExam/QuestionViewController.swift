@@ -11,7 +11,7 @@ import UIKit
 class QuestionViewController: ViewController {
     
     @IBOutlet var questionText: UITextView!
-    var questionNumber: Int?
+    var questionNumber: Int = 0
     
     override func viewDidLoad() {
         displayQuestionText()
@@ -24,9 +24,6 @@ class QuestionViewController: ViewController {
     // MARK: private function
     
     private func displayQuestionText() {
-        guard let questionNumber = questionNumber else {
-            return
-        }
         questionText.text = QuestionsDataSource.questions[questionNumber]
     }
 }
